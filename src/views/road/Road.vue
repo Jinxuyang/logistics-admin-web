@@ -12,7 +12,7 @@
         <span>路线管理</span>
         <!--<el-input v-model="searchContent" style="width: 15%;margin-left: 1%" placeholder="请输入内容"></el-input>
         <el-button @click="handleSearch(searchContent)" style="margin-left: 1%">检索</el-button>-->
-        <el-button style="float: right" @click="showCreateDialog">添加新路线</el-button>
+        <el-button style="float: right" @click="showDialog()">添加新路线</el-button>
       </div>
 
       <table class="gridtable">
@@ -31,33 +31,21 @@
         </el-pagination>
       </div>
     </el-card>
-    <!--&lt;!&ndash;修改信息Dialog&ndash;&gt;
-    <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible">
-      <el-form :model="temp">
-        <el-form-item label="ID" >
-          <el-input  v-model="temp.id" :disabled="true"></el-input>
-        </el-form-item>
-        <el-form-item label="汽车型号" >
-          <el-input  v-model="temp.model"></el-input>
-        </el-form-item>
-        <el-form-item label="最大装载重量" >
-          <el-input  v-model="temp.maxWeight"></el-input>
-        </el-form-item>
-        <el-form-item label="最大装载体积" >
-          <el-input  v-model="temp.maxVolume"></el-input>
-        </el-form-item>
-        <el-form-item label="起步价" >
-          <el-input  v-model="temp.startPrice"></el-input>
-        </el-form-item>
-        <el-form-item label="点位费" >
-          <el-input  v-model="temp.pointFee"></el-input>
-        </el-form-item>
-      </el-form>
+    <!--修改信息Dialog-->
+    <el-dialog title="生成路径" :visible.sync="dialogStatus">
+      <el-upload
+        class="upload-demo"
+        ref="upload"
+        :action="this.$http.defaults.baseURL+'/path/generate'"
+        :auto-upload="false">
+        <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
+        <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传到服务器</el-button>
+      </el-upload>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="handleEdit(dialogStatus);">确 定</el-button>
+        <el-button @click="dialogStatus = false">取 消</el-button>
+        <el-button type="primary" @click="handleGenerate();">确 定</el-button>
       </div>
-    </el-dialog>-->
+    </el-dialog>
   </div>
 </template>
 
@@ -66,7 +54,11 @@ export default {
   name: 'Car',
   data () {
     return {
-      placeMap: ['', '北京市朝阳区新源西里社区东街甲10号', '北京市昌平区沙河镇巩华大街', '北京市朝阳区民族园路2号', '北京市朝阳区望京路广顺北街33号',
+      placeMap: ['',
+        '北京市朝阳区新源西里社区东街甲10号',
+        '北京市昌平区沙河镇巩华大街',
+        '北京市朝阳区民族园路2号',
+        '北京市朝阳区望京路广顺北街33号',
         '北京市顺义区南法信府前街47号',
         '北京市通州区马驹桥镇柏福村北500米（柏福物流）',
         '北京市通州区漷县镇大香仪村幼儿园西侧',
@@ -85,8 +77,8 @@ export default {
         '北京市顺义区赵全营镇白庙村东路路北500米（二层小黄楼）',
         '北京市朝阳区崔各庄乡南皋村南皋路123号B座'],
       pageCnt: 0,
-      road: [
-      ],
+
+      dialogStatus: false,
       pathData: ''
     }
   },
@@ -94,15 +86,23 @@ export default {
     this.getAllPath()
   },
   methods: {
-
     getAllPath () {
-      this.$http.get('/path/get?pageNum=' + '1').then(res => {
+      this.$http.get('/path/get?pageNum=1&pageSize=9999').then(res => {
         console.log(res)
         if (res.data.status === 'success') {
           this.pathData = res.data.data.list
           console.log(this.pathData)
         }
       })
+    },
+    showDialog () {
+      this.dialogStatus = !this.dialogStatus
+    },
+    handleGenerate () {
+
+    },
+    submitUpload () {
+      this.$refs.upload.submit()
     }
   }
 }

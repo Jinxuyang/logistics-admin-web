@@ -12,6 +12,7 @@ Vue.component('v-distpicker', VDistpicker)
 axios.defaults.baseURL = 'http://localhost:8400/'
 axios.defaults.withCredentials = true
 
+Vue.prototype.baseUrl =
 Vue.prototype.$http = axios
 Vue.prototype.$message = Message
 
