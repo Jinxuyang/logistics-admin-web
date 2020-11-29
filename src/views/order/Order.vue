@@ -102,7 +102,7 @@
     </el-card>
     <!--修改信息Dialog-->
     <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible">
-      <el-form :model="temp">
+      <!--<el-form :model="temp">
         <el-form-item label="ID" >
           <el-input  v-model="temp.id" :disabled="true"></el-input>
         </el-form-item>
@@ -157,6 +157,155 @@
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">取 消</el-button>
         <el-button type="primary" @click="handleEdit(dialogStatus);">确 定</el-button>
+      </div>-->
+      <!--<el-form>
+        <el-form-item label="">
+
+        </el-form-item>
+        <el-form-item label="地点一">
+          <el-row gutter="10">
+            <el-col :span="5"><el-input v-model="temp.toProvince"></el-input></el-col>
+            <el-col :span="5"><el-input  v-model="temp.toCity"></el-input></el-col>
+          </el-row>
+        </el-form-item>
+        <el-form-item label="地点二">
+          <el-row gutter="10">
+            <el-col :span="5"><el-input v-model="temp.toProvince"></el-input></el-col>
+            <el-col :span="5"><el-input  v-model="temp.toCity"></el-input></el-col>
+          </el-row>
+        </el-form-item>
+        <el-form-item label="地点三">
+          <el-row gutter="10">
+            <el-col :span="5"><el-input v-model="temp.toProvince"></el-input></el-col>
+            <el-col :span="5"><el-input  v-model="temp.toCity"></el-input></el-col>
+          </el-row>
+        </el-form-item>
+        <el-form-item label="地点一">
+          <el-row gutter="10">
+            <el-col :span="5"><el-input v-model="temp.toProvince"></el-input></el-col>
+            <el-col :span="5"><el-input  v-model="temp.toCity"></el-input></el-col>
+          </el-row>
+        </el-form-item>
+        <el-form-item label="地点一">
+          <el-row gutter="10">
+            <el-col :span="5"><el-input v-model="temp.toProvince"></el-input></el-col>
+            <el-col :span="5"><el-input  v-model="temp.toCity"></el-input></el-col>
+          </el-row>
+        </el-form-item>
+        <el-form-item label="地点一">
+        <el-row gutter="10">
+          <el-col :span="5"><el-input v-model="temp.toProvince"></el-input></el-col>
+          <el-col :span="5"><el-input  v-model="temp.toCity"></el-input></el-col>
+        </el-row>
+      </el-form-item>
+        <el-form-item label="地点一">
+        <el-row gutter="10">
+          <el-col :span="5"><el-input v-model="temp.toProvince"></el-input></el-col>
+          <el-col :span="5"><el-input  v-model="temp.toCity"></el-input></el-col>
+        </el-row>
+      </el-form-item>
+        <el-form-item label="地点一">
+          <el-row gutter="10">
+            <el-col :span="5"><el-input v-model="temp.toProvince"></el-input></el-col>
+            <el-col :span="5"><el-input  v-model="temp.toCity"></el-input></el-col>
+          </el-row>
+        </el-form-item>
+        <el-form-item label="地点一">
+          <el-row gutter="10">
+            <el-col :span="5"><el-input v-model="temp.toProvince"></el-input></el-col>
+            <el-col :span="5"><el-input  v-model="temp.toCity"></el-input></el-col>
+          </el-row>
+        </el-form-item>
+        <el-form-item label="地点一">
+          <el-row gutter="10">
+            <el-col :span="5"><el-input v-model="temp.toProvince"></el-input></el-col>
+            <el-col :span="5"><el-input  v-model="temp.toCity"></el-input></el-col>
+          </el-row>
+        </el-form-item>
+        <el-form-item label="地点一">
+          <el-row gutter="10">
+            <el-col :span="5"><el-input v-model="temp.toProvince"></el-input></el-col>
+            <el-col :span="5"><el-input  v-model="temp.toCity"></el-input></el-col>
+          </el-row>
+        </el-form-item>
+        <el-form-item label="地点一">
+        <el-row gutter="10">
+          <el-col :span="5"><el-input v-model="temp.toProvince"></el-input></el-col>
+          <el-col :span="5"><el-input  v-model="temp.toCity"></el-input></el-col>
+        </el-row>
+      </el-form-item>
+        <el-form-item label="地点一">
+        <el-row gutter="10">
+          <el-col :span="5"><el-input v-model="temp.toProvince"></el-input></el-col>
+          <el-col :span="5"><el-input  v-model="temp.toCity"></el-input></el-col>
+        </el-row>
+      </el-form-item>
+        <el-form-item label="地点一">
+        <el-row gutter="10">
+          <el-col :span="5"><el-input v-model="temp.toProvince"></el-input></el-col>
+          <el-col :span="5"><el-input  v-model="temp.toCity"></el-input></el-col>
+        </el-row>
+      </el-form-item>
+        <el-form-item label="地点一">
+        <el-row gutter="10">
+          <el-col :span="5"><el-input v-model="temp.toProvince"></el-input></el-col>
+          <el-col :span="5"><el-input  v-model="temp.toCity"></el-input></el-col>
+        </el-row>
+      </el-form-item>
+        <el-form-item label="地点一">
+        <el-row gutter="10">
+          <el-col :span="5"><el-input v-model="temp.toProvince"></el-input></el-col>
+          <el-col :span="5"><el-input  v-model="temp.toCity"></el-input></el-col>
+        </el-row>
+      </el-form-item>
+        <el-form-item label="地点一">
+        <el-row gutter="10">
+          <el-col :span="5"><el-input v-model="temp.toProvince"></el-input></el-col>
+          <el-col :span="5"><el-input  v-model="temp.toCity"></el-input></el-col>
+        </el-row>
+      </el-form-item>
+        <el-form-item label="地点一">
+        <el-row gutter="10">
+          <el-col :span="5"><el-input v-model="temp.toProvince"></el-input></el-col>
+          <el-col :span="5"><el-input  v-model="temp.toCity"></el-input></el-col>
+        </el-row>
+      </el-form-item>
+        <el-form-item label="地点一">
+        <el-row gutter="10">
+          <el-col :span="5"><el-input v-model="temp.toProvince"></el-input></el-col>
+          <el-col :span="5"><el-input  v-model="temp.toCity"></el-input></el-col>
+        </el-row>
+      </el-form-item>
+        <el-form-item label="地点一">
+        <el-row gutter="10">
+          <el-col :span="5"><el-input v-model="temp.toProvince"></el-input></el-col>
+          <el-col :span="5"><el-input  v-model="temp.toCity"></el-input></el-col>
+        </el-row>
+      </el-form-item>
+        <el-form-item label="地点一">
+        <el-row gutter="10">
+          <el-col :span="5"><el-input v-model="temp.toProvince"></el-input></el-col>
+          <el-col :span="5"><el-input  v-model="temp.toCity"></el-input></el-col>
+        </el-row>
+      </el-form-item>
+        <el-form-item label="地点一">
+        <el-row gutter="10">
+          <el-col :span="5"><el-input v-model="temp.toProvince"></el-input></el-col>
+          <el-col :span="5"><el-input  v-model="temp.toCity"></el-input></el-col>
+        </el-row>
+      </el-form-item>
+      </el-form>-->
+      <el-form>
+        <el-form-item v-for="(place ,index) in this.placeMap" :key="index" :label="place">
+          <el-row gutter="10">
+            <el-col :span="5"><el-input v-model="weight[index]"></el-input></el-col>
+            <el-col :span="5"><el-input  v-model="volume[index]"></el-input></el-col>
+          </el-row>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">取 消</el-button>
+        <el-button type="primary" @click="handleEdit(dialogStatus);">确 定</el-button>
       </div>
     </el-dialog>
   </div>
@@ -171,6 +320,11 @@ export default {
         update: '更新',
         create: '新增'
       },
+      placeMap: ['朝阳区新源西里社区东街甲10号', '昌平区沙河镇巩华大街', '朝阳区民族园路2号', '朝阳区望京路广顺北街33号', '顺义区南法信府前街47号', '通州区马驹桥镇柏福村北500米', '通州区漷县镇大香仪村幼儿园西侧', '通州区通胡大街甲3号', '通州区于家务乡渠头村头东口通卅联盟产业园', '顺义区李桥镇沿河村滨沿路2号',
+        '朝阳区黑庄户乡大鲁店甲一号', '朝阳区双桥桥关西侧', '朝阳区东三环南路弘燕南一路华森新世纪广场', '海淀区西四环北路117号', '1021云岗店', '大兴区西红门宏福路与欣旺大街交汇处', '大兴区旧宫镇小红门路39号', '长阳镇四大队水四路北京太阳葡萄酒有限公司对面院内',
+        '顺义区高丽营镇金马工业区19号圣士鑫建材有限公司', '顺义区赵全营镇白庙村东路路北500米（二层小黄楼）', '朝阳区崔各庄乡南皋村南皋路123号B座'],
+      volume: [],
+      weight: [],
       tableData: [],
       temp: {
         id: undefined,
