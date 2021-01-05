@@ -5,12 +5,14 @@ import Car from '@/views/car/Car'
 import Order from '@/views/order/Order'
 import Road from '@/views/road/Road'
 import Login from '@/views/login/Login'
+import Router from '@/views/router/Router'
 
 Vue.use(VueRouter)
 
 const routes = [
   { path: '/', redirect: '/login' },
   { path: '/login', name: 'Login', component: Login },
+  { path: '/router', name: 'Router', component: Router },
   {
     path: '/',
     name: 'Home',
